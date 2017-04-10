@@ -10,7 +10,7 @@ describe('movies integration', () => {
       return Movies.inject({
         url: '/movies',
         method: 'POST',
-        payload: { title: 'Volver' }
+        payload: { name: 'Volver' }
       })
       .then((response) => {
         expect(response.statusCode).to.eql(200);
