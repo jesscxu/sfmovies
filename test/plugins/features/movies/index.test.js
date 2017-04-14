@@ -21,4 +21,19 @@ describe('movies integration', () => {
 
   });
 
+  describe('findAll', () => {
+
+    it('filters movies by query parameters', () => {
+      return Movies.inject({
+        url: '/movies?title=Rollerball',
+        method: 'GET'
+      })
+      .then((response) => {
+        expect(response.statusCode).to.eql(200);
+        expect(response.result[0].title).to.eql('Rollerball');
+      });
+    });
+
+  });
+
 });
