@@ -15,7 +15,7 @@ describe('movie model', () => {
         'release_year',
         'object'
       ]);
-      
+
     });
 
   });

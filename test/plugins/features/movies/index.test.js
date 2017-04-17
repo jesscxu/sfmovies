@@ -16,6 +16,7 @@ describe('movies integration', () => {
         expect(response.statusCode).to.eql(200);
         expect(response.result.object).to.eql('movie');
       });
+
     });
 
   });
