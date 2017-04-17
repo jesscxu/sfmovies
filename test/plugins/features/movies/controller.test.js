@@ -8,16 +8,17 @@ describe('movie controller', () => {
   describe('create', () => {
 
     it('creates a movie', () => {
-      const payload = { title: 'WALL-E' };
+      const title = 'WALL-E';
+      const payload = { title };
 
       return Controller.create(payload)
       .then((movie) => {
-        expect(movie.get('title')).to.eql(payload.title);
+        expect(movie.get('name')).to.eql(title);
 
         return new Movie({ id: movie.id }).fetch();
       })
       .then((movie) => {
-        expect(movie.get('title')).to.eql(payload.title);
+        expect(movie.get('name')).to.eql(title);
       });
     });
 
