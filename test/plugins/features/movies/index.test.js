@@ -25,12 +25,12 @@ describe('movies integration', () => {
 
     it('filters movies by query parameters', () => {
       return Movies.inject({
-        url: '/movies?title=Rollerball',
+        url: '/movies?title=WALL-E',
         method: 'GET'
       })
       .then((response) => {
         expect(response.statusCode).to.eql(200);
-        expect(response.result[0].title).to.eql('Rollerball');
+        expect(response.result[0].title).to.eql('WALL-E');
       });
     });
 
