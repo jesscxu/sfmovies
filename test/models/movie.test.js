@@ -13,6 +13,7 @@ describe('movie model', () => {
         'id',
         'title',
         'release_year',
+        'locations',
         'object'
       ]);
 
@@ -28,7 +29,7 @@ describe('movie model', () => {
     };
 
     it('filters by exact title', () => {
-      new Movie().save(values)
+      return new Movie().save(values)
       .then(() => {
         const filter = {
           title: 'Rollerball'

@@ -56,6 +56,33 @@ describe('movie validator payload', () => {
 
 });
 
+describe('movie validator payload location', () => {
+
+  describe('location_id', () => {
+
+    it('is required', () => {
+      const payload = {};
+      const result = Joi.validate(payload, MovieValidator.payloadLocation);
+
+      expect(result.error.details[0].path).to.eql('location_id');
+      expect(result.error.details[0].type).to.eql('any.required');
+    });
+
+    it('is an integer', () => {
+      const payload =  {
+        location_id: 'poop'
+      };
+
+      const result = Joi.validate(payload, MovieValidator.payloadLocation);
+
+      expect(result.error.details[0].path).to.eql('location_id');
+      expect(result.error.details[0].type).to.eql('number.base');
+    });
+
+  });
+
+});
+
 describe('movie validator query', () => {
 
   describe('release_year_start', () => {
